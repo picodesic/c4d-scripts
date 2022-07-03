@@ -1,0 +1,211 @@
+>>> help(a)
+Help on Atom in module Bio.PDB.Atom object:
+
+class Atom(__builtin__.object)
+ |  Define Atom class.
+ |
+ |  The Atom object stores atom name (both with and without spaces),
+ |  coordinates, B factor, occupancy, alternative location specifier
+ |  and (optionally) anisotropic B factor and standard deviations of
+ |  B factor and positions.
+ |
+ |  Methods defined here:
+ |
+ |  __eq__(self, other)
+ |      Test equality.
+ |
+ |  __ge__(self, other)
+ |      Test greater or equal.
+ |
+ |  __gt__(self, other)
+ |      Test greater than.
+ |
+ |  __hash__(self)
+ |      Return atom full identifier.
+ |
+ |  __init__(self, name, coord, bfactor, occupancy, altloc, fullname, serial_number, element=None)
+ |      Initialize Atom object.
+ |
+ |      :param name: atom name (eg. "CA"). Note that spaces are normally stripped.
+ |      :type name: string
+ |
+ |      :param coord: atomic coordinates (x,y,z)
+ |      :type coord: Numeric array (Float0, size 3)
+ |
+ |      :param bfactor: isotropic B factor
+ |      :type bfactor: number
+ |
+ |      :param occupancy: occupancy (0.0-1.0)
+ |      :type occupancy: number
+ |
+ |      :param altloc: alternative location specifier for disordered atoms
+ |      :type altloc: string
+ |
+ |      :param fullname: full atom name, including spaces, e.g. " CA ". Normally
+ |                       these spaces are stripped from the atom name.
+ |      :type fullname: string
+ |
+ |      :param element: atom element, e.g. "C" for Carbon, "HG" for mercury,
+ |      :type element: uppercase string (or None if unknown)
+ |
+ |  __le__(self, other)
+ |      Test less or equal.
+ |
+ |  __lt__(self, other)
+ |      Test less than.
+ |
+ |  __ne__(self, other)
+ |      Test inequality.
+ |
+ |  __repr__(self)
+ |      Print Atom object as <Atom atom_name>.
+ |
+ |  __sub__(self, other)
+ |      Calculate distance between two atoms.
+ |
+ |      :param other: the other atom
+ |      :type other: L{Atom}
+ |
+ |      Examples
+ |      --------
+ |      This is an incomplete but illustrative example::
+ |
+ |          distance = atom1 - atom2
+ |
+ |  copy(self)
+ |      Create a copy of the Atom.
+ |
+ |      Parent information is lost.
+ |
+ |  detach_parent(self)
+ |      Remove reference to parent.
+ |
+ |  flag_disorder(self)
+ |      Set the disordered flag to 1.
+ |
+ |      The disordered flag indicates whether the atom is disordered or not.
+ |
+ |  get_altloc(self)
+ |      Return alternative location specifier.
+ |
+ |  get_anisou(self)
+ |      Return anisotropic B factor.
+ |
+ |  get_bfactor(self)
+ |      Return B factor.
+ |
+ |  get_coord(self)
+ |      Return atomic coordinates.
+ |
+ |  get_full_id(self)
+ |      Return the full id of the atom.
+ |
+ |      The full id of an atom is the tuple
+ |      (structure id, model id, chain id, residue id, atom name, altloc).
+ |
+ |  get_fullname(self)
+ |      Return the atom name, including leading and trailing spaces.
+ |
+ |  get_id(self)
+ |      Return the id of the atom (which is its atom name).
+ |
+ |  get_level(self)
+ |      Return level.
+ |
+ |  get_name(self)
+ |      Return atom name.
+ |
+ |  get_occupancy(self)
+ |      Return occupancy.
+ |
+ |  get_parent(self)
+ |      Return parent residue.
+ |
+ |  get_serial_number(self)
+ |      Return the serial number.
+ |
+ |  get_sigatm(self)
+ |      Return standard deviation of atomic parameters.
+ |
+ |  get_siguij(self)
+ |      Return standard deviations of anisotropic temperature factors.
+ |
+ |  get_vector(self)
+ |      Return coordinates as Vector.
+ |
+ |      :return: coordinates as 3D vector
+ |      :rtype: Bio.PDB.Vector class
+ |
+ |  is_disordered(self)
+ |      Return the disordered flag (1 if disordered, 0 otherwise).
+ |
+ |  set_altloc(self, altloc)
+ |      Set alternative location specifier.
+ |
+ |  set_anisou(self, anisou_array)
+ |      Set anisotropic B factor.
+ |
+ |      :param anisou_array: anisotropic B factor.
+ |      :type anisou_array: Numeric array (length 6)
+ |
+ |  set_bfactor(self, bfactor)
+ |      Set isotroptic B factor.
+ |
+ |  set_coord(self, coord)
+ |      Set coordinates.
+ |
+ |  set_occupancy(self, occupancy)
+ |      Set occupancy.
+ |
+ |  set_parent(self, parent)
+ |      Set the parent residue.
+ |
+ |      Arguments:
+ |       - parent - Residue object
+ |
+ |  set_serial_number(self, n)
+ |      Set serial number.
+ |
+ |  set_sigatm(self, sigatm_array)
+ |      Set standard deviation of atomic parameters.
+ |
+ |      The standard deviation of atomic parameters consists
+ |      of 3 positional, 1 B factor and 1 occupancy standard
+ |      deviation.
+ |
+ |      :param sigatm_array: standard deviations of atomic parameters.
+ |      :type sigatm_array: Numeric array (length 5)
+ |
+ |  set_siguij(self, siguij_array)
+ |      Set standard deviations of anisotropic temperature factors.
+ |
+ |      :param siguij_array: standard deviations of anisotropic temperature factors.
+ |      :type siguij_array: Numeric array (length 6)
+ |
+ |  transform(self, rot, tran)
+ |      Apply rotation and translation to the atomic coordinates.
+ |
+ |      :param rot: A right multiplying rotation matrix
+ |      :type rot: 3x3 Numeric array
+ |
+ |      :param tran: the translation vector
+ |      :type tran: size 3 Numeric array
+ |
+ |      Examples
+ |      --------
+ |      This is an incomplete but illustrative example::
+ |
+ |          from numpy import pi, array
+ |          from Bio.PDB.vectors import Vector, rotmat
+ |          rotation = rotmat(pi, Vector(1, 0, 0))
+ |          translation = array((0, 0, 1), 'f')
+ |          atom.transform(rotation, translation)
+ |
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |
+ |  __weakref__
+ |      list of weak references to the object (if defined)

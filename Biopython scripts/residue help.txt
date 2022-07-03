@@ -1,0 +1,183 @@
+>>> help(residue)
+Help on Residue in module Bio.PDB.Residue object:
+
+class Residue(Bio.PDB.Entity.Entity)
+ |  Represents a residue. A Residue object stores atoms.
+ |
+ |  Method resolution order:
+ |      Residue
+ |      Bio.PDB.Entity.Entity
+ |      __builtin__.object
+ |
+ |  Methods defined here:
+ |
+ |  __init__(self, id, resname, segid)
+ |      Initialize the class.
+ |
+ |  __repr__(self)
+ |      Return the residue full id.
+ |
+ |  add(self, atom)
+ |      Add an Atom object.
+ |
+ |      Checks for adding duplicate atoms, and raises a
+ |      PDBConstructionException if so.
+ |
+ |  flag_disordered(self)
+ |      Set the disordered flag.
+ |
+ |  get_atom(self)
+ |      Return atom.
+ |
+ |  get_atoms(self)
+ |      Return atoms.
+ |
+ |  get_resname(self)
+ |      Return the residue name.
+ |
+ |  get_segid(self)
+ |      Return the segment identifier.
+ |
+ |  get_unpacked_list(self)
+ |      Return the list of all atoms, unpack DisorderedAtoms.
+ |
+ |  is_disordered(self)
+ |      Return 1 if the residue contains disordered atoms.
+ |
+ |  sort(self)
+ |      Sort child atoms.
+ |
+ |      Atoms N, CA, C, O always come first, thereafter alphabetically
+ |      by name, with any alternative location specifier for disordered
+ |      atoms (altloc) as a tie-breaker.
+ |
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from Bio.PDB.Entity.Entity:
+ |
+ |  __contains__(self, id)
+ |      Check if there is a child element with the given id.
+ |
+ |  __delitem__(self, id)
+ |      Remove a child.
+ |
+ |  __eq__(self, other)
+ |      Test for equality. This compares full_id including the IDs of all parents.
+ |
+ |  __ge__(self, other)
+ |      Test greater or equal.
+ |
+ |  __getitem__(self, id)
+ |      Return the child with given id.
+ |
+ |  __gt__(self, other)
+ |      Test greater than.
+ |
+ |  __hash__(self)
+ |      Hash method to allow uniqueness (set).
+ |
+ |  __iter__(self)
+ |      Iterate over children.
+ |
+ |  __le__(self, other)
+ |      Test less or equal.
+ |
+ |  __len__(self)
+ |      Return the number of children.
+ |
+ |  __lt__(self, other)
+ |      Test less than.
+ |
+ |  __ne__(self, other)
+ |      Test for inequality.
+ |
+ |  copy(self)
+ |      Copy entity recursively.
+ |
+ |  detach_child(self, id)
+ |      Remove a child.
+ |
+ |  detach_parent(self)
+ |      Detach the parent.
+ |
+ |  get_full_id(self)
+ |      Return the full id.
+ |
+ |      The full id is a tuple containing all id's starting from
+ |      the top object (Structure) down to the current object. A full id for
+ |      a Residue object e.g. is something like:
+ |
+ |      ("1abc", 0, "A", (" ", 10, "A"))
+ |
+ |      This corresponds to:
+ |
+ |      Structure with id "1abc"
+ |      Model with id 0
+ |      Chain with id "A"
+ |      Residue with id (" ", 10, "A")
+ |
+ |      The Residue id indicates that the residue is not a hetero-residue
+ |      (or a water) because it has a blank hetero field, that its sequence
+ |      identifier is 10 and its insertion code "A".
+ |
+ |  get_id(self)
+ |      Return the id.
+ |
+ |  get_iterator(self)
+ |      Return iterator over children.
+ |
+ |  get_level(self)
+ |      Return level in hierarchy.
+ |
+ |      A - atom
+ |      R - residue
+ |      C - chain
+ |      M - model
+ |      S - structure
+ |
+ |  get_list(self)
+ |      Return a copy of the list of children.
+ |
+ |  get_parent(self)
+ |      Return the parent Entity object.
+ |
+ |  has_id(self, id)
+ |      Check if a child with given id exists.
+ |
+ |  insert(self, pos, entity)
+ |      Add a child to the Entity at a specified position.
+ |
+ |  set_parent(self, entity)
+ |      Set the parent Entity object.
+ |
+ |  transform(self, rot, tran)
+ |      Apply rotation and translation to the atomic coordinates.
+ |
+ |      :param rot: A right multiplying rotation matrix
+ |      :type rot: 3x3 Numeric array
+ |
+ |      :param tran: the translation vector
+ |      :type tran: size 3 Numeric array
+ |
+ |      Examples
+ |      --------
+ |      This is an incomplete but illustrative example::
+ |
+ |          from numpy import pi, array
+ |          from Bio.PDB.vectors import Vector, rotmat
+ |          rotation = rotmat(pi, Vector(1, 0, 0))
+ |          translation = array((0, 0, 1), 'f')
+ |          entity.transform(rotation, translation)
+ |
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from Bio.PDB.Entity.Entity:
+ |
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+ |
+ |  id
+ |      Return identifier.
+
+>>> 
